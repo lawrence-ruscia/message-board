@@ -35,7 +35,7 @@ body {
 }
 
 :root {
-  --color-primary: oklch(62.7% 0.194 149.214);
+  --color-primary: #00a63e;
 }
 
 .header {
@@ -55,6 +55,19 @@ body {
 }
 
 .headline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.headline__logo {
+  background-color: oklch(26.539% 0.06512 152.793 / 0.555);
+  flex-shrink: 0;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.headline__text {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

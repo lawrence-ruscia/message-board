@@ -17,13 +17,13 @@
         </a>
         <% locals.messages.forEach(msg => { %>
         <li class="message__item">
-          <div class="profile"><%= getInitials(msg.user) %></div>
+          <div class="profile"><%= getInitials(msg.username) %></div>
           <div class="content">
             <div class="content__header">
-              <p class="user"><%= msg.user %></p>
+              <p class="user"><%= msg.username %></p>
               <p class="added subheading"><%= formatDate(msg.added) %></p>
             </div>
-            <p class="content__text"><%= msg.text %></p>
+            <p class="content__text"><%= msg.message %></p>
           </div>
         </li>
         <%})%>

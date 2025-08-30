@@ -1,17 +1,17 @@
 const messages = [
   {
-    text: 'Hi there!',
-    user: 'Amando',
+    message: 'Hi there!',
+    username: 'Amando',
     added: new Date(),
   },
   {
-    text: 'Hello World!',
-    user: 'Charles',
+    message: 'Hello World!',
+    username: 'Charles',
     added: new Date(),
   },
   {
-    text: 'Wanker!',
-    user: 'John Constantine',
+    message: 'Wanker!',
+    username: 'John Constantine',
     added: new Date(),
   },
 ];
@@ -45,4 +45,11 @@ export const getDashboard = (req, res) => {
 
 export const getMessageForm = (req, res) => {
   res.render('messageForm', { messages });
+};
+
+export const createMessagePost = (req, res) => {
+  const { username, message } = req.body;
+  messages.push({ username, message, added: new Date(Date.now()) });
+
+  res.redirect('/');
 };

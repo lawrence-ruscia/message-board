@@ -12,7 +12,9 @@
     <div id="main">
       <%- include('header') %>
       <ul class="message__list">
-        <button class="add-message"><%- include('plus') %> Add Message</button>
+        <a href="/new" class="add-message link-btn">
+          <%- include('plus') %> Add Message
+        </a>
         <% locals.messages.forEach(msg => { %>
         <li class="message__item">
           <div class="profile"><%= getInitials(msg.user) %></div>

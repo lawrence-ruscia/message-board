@@ -21,7 +21,6 @@ button {
   cursor: pointer;
   outline: none;
   border: 0;
-  font-weight: inherit;
 }
 
 body {
@@ -49,7 +48,8 @@ body {
   width: 100%;
 }
 
-button {
+button,
+.link-btn {
   padding: 8px 16px;
   border-radius: 4px;
 
@@ -62,6 +62,12 @@ button {
   font-weight: 500;
 
   transition: background-color 250ms ease-in-out;
+}
+
+.link-btn {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 /* Global Variables */

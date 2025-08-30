@@ -1,3 +1,4 @@
+/* Reset */
 *,
 *::before,
 *::after {
@@ -29,15 +30,46 @@ body {
   font-weight: 400;
   font-style: normal;
 
-  padding: clamp(1rem, 5vw, 5rem);
+  padding-block: clamp(1rem, 4vw, 4rem);
+  padding-inline: clamp(1rem, 5vw, 2rem);
+
+  display: flex;
+  justify-content: center;
+
   background-color: oklch(12.9% 0.042 264.695);
   color: oklch(98.4% 0.003 247.858);
 }
 
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 70ch;
+  width: 100%;
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+/* Global Variables */
 :root {
   --color-primary: #00a63e;
 }
 
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -81,6 +113,7 @@ body {
   color: oklch(92.876% 0.01272 255.643 / 0.734);
 }
 
+/* Message Board */
 .message__list {
   display: flex;
   flex-direction: column;
@@ -88,21 +121,10 @@ body {
 }
 
 .add-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-
-  padding: 0.45rem 0.95rem;
-  border-radius: 6px;
   margin-bottom: 0.25rem;
 
   background-color: var(--color-primary);
   align-self: start;
-  font-size: 1rem;
-  font-weight: 500;
-
-  transition: background-color 250ms ease-in-out;
 }
 
 .add-message:hover {
@@ -158,4 +180,61 @@ body {
 
 .added {
   font-size: 0.85rem;
+}
+
+/* Message Form */
+.message-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+
+  width: 100%;
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+
+  background-color: rgb(3, 14, 38);
+  border: 1px solid rgb(29, 40, 57);
+  border-radius: 6px;
+  color: #f8fafc;
+}
+
+.message-input {
+  resize: vertical;
+}
+
+.options {
+  align-self: end;
+  display: flex;
+  gap: 1rem;
+}
+
+.submit-btn {
+  background-color: var(--color-primary);
+}
+
+.back-btn {
+  background-color: rgb(3, 14, 38);
+  border: 1px solid rgb(29, 40, 57);
+}
+
+.submit-btn:hover {
+  background-color: oklch(52.582% 0.15419 147.518);
+}
+
+.back-btn:hover {
+  background-color: rgb(4, 17, 47);
 }

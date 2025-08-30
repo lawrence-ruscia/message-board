@@ -9,23 +9,23 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <%- include('header') %>
-
-    <ul class="message__list">
-      <button class="add-message"><%- include('plus') %> Add Message</button>
-      <% locals.messages.forEach(msg => { %>
-
-      <li class="message__item">
-        <div class="profile"><%= getInitials(msg.user) %></div>
-        <div class="content">
-          <div class="content__header">
-            <p class="user"><%= msg.user %></p>
-            <p class="added subheading"><%= formatDate(msg.added) %></p>
+    <div id="main">
+      <%- include('header') %>
+      <ul class="message__list">
+        <button class="add-message"><%- include('plus') %> Add Message</button>
+        <% locals.messages.forEach(msg => { %>
+        <li class="message__item">
+          <div class="profile"><%= getInitials(msg.user) %></div>
+          <div class="content">
+            <div class="content__header">
+              <p class="user"><%= msg.user %></p>
+              <p class="added subheading"><%= formatDate(msg.added) %></p>
+            </div>
+            <p class="content__text"><%= msg.text %></p>
           </div>
-          <p class="content__text"><%= msg.text %></p>
-        </div>
-      </li>
-      <%})%>
-    </ul>
+        </li>
+        <%})%>
+      </ul>
+    </div>
   </body>
 </html>

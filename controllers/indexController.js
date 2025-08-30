@@ -42,3 +42,7 @@ function getInitials(name) {
 export const getDashboard = (req, res) => {
   res.render('index', { messages, formatDate, getInitials });
 };
+
+export const getMessageForm = (req, res) => {
+  res.render('messageForm', { messages });
+};

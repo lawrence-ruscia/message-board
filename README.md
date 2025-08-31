@@ -25,6 +25,29 @@ Users can view existing messages, add new ones through a form, and view details 
 
 - **In-memory message storage using an array (no database yet)**
 
+## 🚀 Getting Started
+
+1. Clone the repository
+
+```bash
+git clone git@github.com:lawrence-ruscia/message-board.git
+cd message-board
+```
+
+2. Install Dependencies
+
+```bash
+npm install
+```
+
+3. Run the server
+
+```bash
+npm run dev
+```
+
+The server will start on http://localhost:3000.
+
 ## 🛠 Tech Stack
 
 - Node.js (runtime)
@@ -47,6 +70,6 @@ Users can view existing messages, add new ones through a form, and view details 
 
 ## Screenshots
 
-[!Dashboard](/public/msg-board-01.png)
+[!Dashboard](./public/msg-board-01.png)
 [!Message Form](/public/msg-board-02.png)
 [!Message Details](/public/msg-board-03.png)

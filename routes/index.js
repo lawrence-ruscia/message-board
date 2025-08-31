@@ -10,6 +10,6 @@ export const index = Router();
 
 index.get('/', getDashboard);
 index.get('/new', getMessageForm);
-index.get('/:id', getMessageDetails);
+index.get('/messages/:id', getMessageDetails);
 
 index.post('/new', createMessagePost);

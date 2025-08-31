@@ -42,9 +42,7 @@ body {
 #main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
-  max-width: 70ch;
   width: 100%;
 }
 
@@ -73,6 +71,10 @@ button,
 /* Global Variables */
 :root {
   --color-primary: #00a63e;
+  --color-bg: rgb(3, 14, 38);
+  --color-bg-hover: rgb(4, 17, 47);
+
+  --border-solid: 1px solid rgb(29, 40, 57);
 }
 
 /* Header */
@@ -139,19 +141,20 @@ button,
 
 .message__item {
   display: flex;
-  align-items: center;
   gap: 1rem;
 
-  border: 1px solid rgb(29, 40, 57);
-  background-color: rgb(3, 14, 38);
+  border: var(--border-solid);
+  background-color: var(--color-bg);
   border-radius: 8px;
   padding: 1.25rem;
+
+  cursor: pointer;
 
   transition: background-color 250ms ease-in-out;
 }
 
 .message__item:hover {
-  background-color: rgb(4, 17, 47);
+  background-color: var(--color-bg-hover);
 }
 
 .profile {
@@ -213,7 +216,7 @@ textarea {
   font-size: 0.95rem;
 
   background-color: rgb(3, 14, 38);
-  border: 1px solid rgb(29, 40, 57);
+  border: var(--border-solid);
   border-radius: 6px;
   color: #f8fafc;
 }
@@ -233,8 +236,8 @@ textarea {
 }
 
 .back-btn {
-  background-color: rgb(3, 14, 38);
-  border: 1px solid rgb(29, 40, 57);
+  background-color: var(--color-bg);
+  border: var(--border-solid);
 }
 
 .submit-btn:hover {
@@ -242,5 +245,61 @@ textarea {
 }
 
 .back-btn:hover {
-  background-color: rgb(4, 17, 47);
+  background-color: var(--color-bg-hover);
+}
+
+/* Message Details */
+/* TODO: Finish message detail content */
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1rem;
+  border-radius: 6px;
+
+  border: var(--border-solid);
+  background-color: var(--color-bg);
+}
+.details__body {
+  display: flex;
+  gap: 1rem;
+}
+
+.details__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.details__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.details__text {
+  margin-top: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.details .back-btn {
+  margin-top: 2rem;
+  padding-inline: 2.25rem;
+  align-self: end;
+}
+
+@media (min-width: 1024px) {
+  #main {
+    max-width: 70ch;
+  }
 }

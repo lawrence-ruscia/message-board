@@ -8,38 +8,27 @@
     />
     <link rel="stylesheet" href="/style.css" />
   </head>
+
   <body>
     <div id="main">
-      <%- include('header') %>
-      <ul class="message__list">
-        <a href="/new" class="add-message link-btn">
-          <%- include('plus') %> Add Message
-        </a>
-        <% locals.messages.forEach(msg => { %>
-        <li class="message__item" data-id="<%= msg.id %>">
+      <%- include('header') %> <% const {msg, getInitials, formatDate} =
+      locals;%>
+      <div class="details">
+        <div class="details__body">
           <div class="profile"><%= getInitials(msg.username) %></div>
-          <div class="content">
-            <div class="content__header">
+          <div class="details__content">
+            <div class="details__header">
               <p class="user"><%= msg.username %></p>
               <p class="added subheading"><%= formatDate(msg.added) %></p>
             </div>
-            <p class="content__text"><%= msg.message %></p>
           </div>
-        </li>
-        <%})%>
-      </ul>
+        </div>
+        <div class="details__text">
+          <p class="label">Message:</p>
+          <%= msg.message %>
+        </div>
+        <a href="/" class="back-btn link-btn">Back</a>
+      </div>
     </div>
   </body>
-  <script defer>
-    document.addEventListener('click', async (e) => {
-      const el = e.target;
-      const closest = el.closest('.message__item');
-
-      if (closest) {
-        const id = closest.dataset.id;
-        // redirect to message details
-        window.location.href = `/${id}`;
-      }
-    });
-  </script>
 </html>

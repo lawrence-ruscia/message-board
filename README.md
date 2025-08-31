@@ -66,10 +66,10 @@ The server will start on http://localhost:3000.
 
 - POST /new → handles form submission, pushes a new message into messages array, redirects to /
 
-- GET /message/:id → shows a single message detail page
+- GET /messages/:id → shows a single message detail page
 
 ## Screenshots
 
-[!Dashboard](./public/msg-board-01.png)
-[!Message Form](/public/msg-board-02.png)
-[!Message Details](/public/msg-board-03.png)
+![Dashboard](./public/msg-board-01.png)
+![Message Form](/public/msg-board-02.png)
+![Message Details](/public/msg-board-03.png)

@@ -24,6 +24,9 @@ const port = process.env.DATABASE_PORT;
 
 const client = new Client({
   connectionString: `postgresql://${user}:${password}@${host}:${port}/${database}`,
+  ssl: {
+    rejectUnauthorized: true,
+  },
 });
 
 async function populate() {

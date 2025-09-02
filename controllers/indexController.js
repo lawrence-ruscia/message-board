@@ -1,23 +1,4 @@
-const messages = [
-  {
-    id: '1',
-    message: 'Hi there!',
-    username: 'Amando',
-    added: new Date('July 25, 2025 02:26:00'),
-  },
-  {
-    id: '2',
-    message: 'Hello World!',
-    username: 'Charles',
-    added: new Date('August 13, 2025 11:13:00'),
-  },
-  {
-    id: '3',
-    message: 'Wanker!',
-    username: 'John Constantine',
-    added: new Date('August 20, 2025 04:09:00'),
-  },
-];
+import MessageModel from '../db/MessageModel.js';
 
 function formatDate(date = new Date()) {
   return date
@@ -42,7 +23,9 @@ function getInitials(name) {
     .join('');
 }
 
-export const getDashboard = (req, res) => {
+export const getDashboard = async (req, res) => {
+  const messages = await MessageModel.getAllMessages();
+
   res.render('index', {
     messages,
     formatDate,
@@ -50,13 +33,17 @@ export const getDashboard = (req, res) => {
   });
 };
 
-export const getMessageForm = (req, res) => {
+export const getMessageForm = async (req, res) => {
+  const messages = await MessageModel.getAllMessages();
   res.render('messageForm', { messages });
 };
 
-export const getMessageDetails = (req, res) => {
+export const getMessageDetails = async (req, res) => {
   const { id } = req.params ?? '';
-  const retrievedMessage = messages.find((msg) => msg.id === id);
+
+  const messages = await MessageModel.getAllMessages();
+  const [retrievedMessage] = await MessageModel.getMessageById(id);
+  console.log(retrievedMessage);
 
   res.render('messageDetails', {
     messages,
@@ -66,14 +53,8 @@ export const getMessageDetails = (req, res) => {
   });
 };
 
-export const createMessagePost = (req, res) => {
+export const createMessagePost = async (req, res) => {
   const { username, message } = req.body;
-  messages.push({
-    id: crypto.randomUUID(),
-    username,
-    message,
-    added: new Date(Date.now()),
-  });
-
+  await MessageModel.insertMessagePost(username, message);
   res.redirect('/');
 };

@@ -23,7 +23,7 @@ Users can view existing messages, add new ones through a form, and view details 
 
 - **POST route that handles new message submissions**
 
-- **In-memory message storage using an array (no database yet)**
+- **PostgreSQL database for storing messages**
 
 ## 🚀 Getting Started
 
@@ -64,7 +64,7 @@ The server will start on http://localhost:3000.
 
 - GET /new → renders the new message form
 
-- POST /new → handles form submission, pushes a new message into messages array, redirects to /
+- POST /new → handles form submission, inserts a new message into the database, redirects to /
 
 - GET /messages/:id → shows a single message detail page
 
